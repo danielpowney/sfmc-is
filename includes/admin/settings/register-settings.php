@@ -56,7 +56,6 @@ function sfmc_is_register_settings() {
 					'args' => array(
 							'option_name' 	=> 'sfmc_is_general_settings',
 							'setting_id' 	=> 'account_id',
-							'label' 		=> __( '', 'sfmc-is' ),
 							'placeholder'	=> __( 'Enter account ID...', 'sfmc-is' ),
 							'required'		=> true
 					)
