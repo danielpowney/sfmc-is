@@ -143,8 +143,8 @@ function sfmc_is_field_radio_buttons( $args ) {
 		<label><?php echo $radio_button['label']; ?></label><br />
 		<?php
 	}
-	?>
-	<br />
-	<label><?php echo $args['label']; ?></label>
-	<?php
+	if ( isset( $args['label'] ) ) { ?>
+		<br />
+		<label><?php echo $args['label']; ?></label>
+	<?php }
 }

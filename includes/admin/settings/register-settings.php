@@ -87,10 +87,6 @@ function sfmc_is_register_settings() {
 											'label' => __( 'Synchronous', 'sfmc-is' )
 									),
 									array(
-											'value' => 'hybrid',
-											'label' => __( 'Hybrid', 'sfmc-is' )
-									),
-									array(
 											'value' => 'async',
 											'label' => __( 'Asynchronous', 'sfmc-is' )
 									)
@@ -120,17 +116,15 @@ function sfmc_is_register_settings() {
 							'label' => __( 'Tell Interaction Studio who the current logged in user is.', 'sfmc-is' ),
 					)
 			),
-			'endpoint' => array(
-					'title' 	=> __( 'Endpoint', 'sfmc-is' ),
-					'callback' 	=> 'sfmc_is_field_input',
+			'add_page_data' => array(
+					'title' 	=> __( 'Add Page Data', 'sfmc-is' ),
+					'callback' 	=> 'sfmc_is_field_checkbox',
 					'page' 		=> 'sfmc-is',
 					'section' 	=> 'sfmc_is_section_general',
 					'args' => array(
 							'option_name' 	=> 'sfmc_is_general_settings',
-							'setting_id' 	=> 'endpoint',
-							'label' 		=> __( 'You should not need to change this.', 'sfmc-is' ),
-							'placeholder'	=> __( 'Enter endpoint...', 'sfmc-is' ),
-							'required'		=> true
+							'setting_id' 	=> 'add_page_data',
+							'label' => __( 'Include page data (e.g. page type, post type, post ID etc...) in a JavaScript variable. This data can be used for sitemap configuration.', 'sfmc-is' ),
 					)
 			),
 	);
@@ -154,7 +148,7 @@ function sfmc_is_default_settings() {
 			'integration_method'			=> 'sync',
 			'in_footer'						=> false,
 			'set_user'						=> true,
-			'endpoint' 						=> 'cdn.evgnet.com',
+			'add_page_data'					=> true,
 
 	), $general_settings );
 
@@ -184,6 +178,12 @@ function sfmc_is_sanitize_general_settings( $input ) {
 		$input['set_user'] = true;
 	} else {
 		$input['set_user'] = false;
+	}
+
+	if ( isset( $input['add_page_data'] ) && $input['add_page_data'] == 'true' ) {
+		$input['add_page_data'] = true;
+	} else {
+		$input['add_page_data'] = false;
 	}
 
 	return $input;

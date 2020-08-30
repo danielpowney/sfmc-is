@@ -24,7 +24,7 @@
  *
  * @package     SFMC_IS 
  * @author 		Daniel Powney
- * @version		1.0
+ * @version		1.1
  */
 
 // Exit if accessed directly.
@@ -36,7 +36,7 @@ if ( ! class_exists( 'SFMC_IS' ) ) :
 /**
  * Main SFMC_IS Class.
  *
- * @since 1.4
+ * @since 1.0
  */
 final class SFMC_IS {
 
@@ -44,7 +44,7 @@ final class SFMC_IS {
 
 	/**
 	 * @var SFMC_IS The one true SFMC_IS
-	 * @since 1.4
+	 * @since 1.0
 	 */
 	private static $instance;
 
@@ -60,7 +60,7 @@ final class SFMC_IS {
 	 * Insures that only one instance of SFMC_IS exists in memory at any one
 	 * time. Also prevents needing to define globals all over the place.
 	 *
-	 * @since 0.1
+	 * @since 1.0
 	 * @static
 	 * @staticvar array $instance
 	 * @uses SFMC_IS::setup_constants() Setup the constants needed.
@@ -89,7 +89,7 @@ final class SFMC_IS {
 	 * The whole idea of the singleton design pattern is that there is a single
 	 * object therefore, we don't want the object to be cloned.
 	 *
-	 * @since 1.6
+	 * @since 1.0
 	 * @access protected
 	 * @return void
 	 */
@@ -101,7 +101,7 @@ final class SFMC_IS {
 	/**
 	 * Disable unserializing of the class.
 	 *
-	 * @since 1.6
+	 * @since 1.0
 	 * @access protected
 	 * @return void
 	 */
@@ -114,14 +114,14 @@ final class SFMC_IS {
 	 * Setup plugin constants.
 	 *
 	 * @access private
-	 * @since 1.4
+	 * @since 1.0
 	 * @return void
 	 */
 	private function setup_constants() {
 
 		// Plugin version.
 		if ( ! defined( 'SFMC_IS_VERSION' ) ) {
-			define( 'SFMC_IS_VERSION', '1.0' );
+			define( 'SFMC_IS_VERSION', '1.1' );
 		}
 
 		// Plugin slug.
@@ -149,7 +149,7 @@ final class SFMC_IS {
 	 * Include required files.
 	 *
 	 * @access private
-	 * @since 1.4
+	 * @since 1.0
 	 * @return void
 	 */
 	private function includes() {
@@ -171,7 +171,7 @@ final class SFMC_IS {
 	 * Loads the plugin language files.
 	 *
 	 * @access public
-	 * @since 1.4
+	 * @since 1.0
 	 * @return void
 	 */
 	public function load_textdomain() {
@@ -256,7 +256,7 @@ function sfmc_is_is_func_disabled( $function ) {
  *
  * Example: <?php $myc = SFMC_IS (); ?>
  *
- * @since 1.4
+ * @since 1.0
 * @return object|SFMC_IS The one true SFMC_IS Instance.
  */
 function SFMC_IS() {

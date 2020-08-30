@@ -13,12 +13,23 @@ Integrates the Interaction Studio JavaScript beacon onto your website.
 
 Integrates the Interaction Studio JavaScript beacon onto your website.
 
-* 3 integration methods: Synchronous, Hybrid and Asyncrhronous
+* 2 integration methods: Synchronous and Asyncrhronous
 * Tells Interaction Studio who the current user is
-* Supports Flicker Defender
 * Works with Gutenberg editor
+* Add a page data variable on your site for easier sitemap configuration
 
-Also comes with filters to change the Interaction Studio endpoint and to push other variables via _aaq.push() calls
+Sample page data JavaScript variable:
+`
+window.IS_PAGE_DATA = {
+	"pageType" : "single",
+    "postType" : "post",
+	"postId" : 1,
+	"postThumbnail" : "",
+	"postTitle" : "Hello world!"
+};
+`
+
+Also contains a filter to optionally push user data to Interaction Studio via _aaq.push() calls
 
 **Follow this plugin on [GitHub](https://github.com/danielpowney/sfmc-is)**
 
@@ -32,5 +43,10 @@ Also comes with filters to change the Interaction Studio endpoint and to push ot
 
 == Changelog ==
 
-= 0.1 (17/08/2020) =
+= 1.1 =
+* Tweak: Removed hybrid integration option
+* New: Added page data variable option for easier sitemap configuration
+* Fix: Do not load scripts if account id or dataset id are not set
+
+= 1.0 (17/08/2020) =
  * Initial
