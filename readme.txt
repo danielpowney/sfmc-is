@@ -25,7 +25,8 @@ window.IS_PAGE_DATA = {
     "postType" : "post",
 	"postId" : 1,
 	"postThumbnail" : "",
-	"postTitle" : "Hello world!"
+	"postTitle" : "Hello world!",
+	"postCategories" : [{"term_id":1,"name":"Uncategorized","slug":"uncategorized","term_group":0,"term_taxonomy_id":1,"taxonomy":"category","description":"","parent":0,"count":1,"filter":"raw","cat_ID":1,"category_count":1,"category_description":"","cat_name":"Uncategorized","category_nicename":"uncategorized","category_parent":0}]
 };
 `
 

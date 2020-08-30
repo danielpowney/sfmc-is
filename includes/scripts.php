@@ -87,6 +87,7 @@ add_action( 'wp_enqueue_scripts', 'sfmc_is_load_scripts' );
 function sfmc_is_page_data_script() {
 	$page_type = sfmc_is_get_page_type();
 	$post_id = get_the_id();
+	$post_type = get_post_type();
 
 	$page_data_script = '    window.IS_PAGE_DATA = {';
 
@@ -99,15 +100,22 @@ function sfmc_is_page_data_script() {
 	    
 	if ( in_array( $page_type, $post_page_types ) ) {
 	   	$page_data_script .= ',
-	    "postType" : "' . get_post_type() . '",
+	    "postType" : "' . $post_type . '",
 		"postId" : ' . $post_id . ',
 		"postThumbnail" : "' . $post_thumbnail . '",
 		"postTitle" : "' . get_the_title() . '"';
 	        
 	    if ( $post_type == 'post' ) {
-	     	$page_data_script .= ',
-		"postCategory" : ' . json_encode( get_the_category() ) . ',
-		"postCategory" : ' . json_encode( get_the_tags() );
+	    	$categories = get_the_category();
+	    	$tags = get_the_tags();
+	    	if ( $categories ) {
+	    		$page_data_script .= ',
+	    "postCategories" : ' . json_encode( get_the_category() );
+			}
+			if ( $tags ) {
+				$page_data_script .= ',
+		"postTags" : ' . json_encode( get_the_tags() );
+			}
 	    }
 	}
 
